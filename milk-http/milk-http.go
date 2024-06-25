@@ -15,7 +15,7 @@ type MilkFunc func(w http.ResponseWriter, r *http.Request)
 // handler: the logic part, write one function that return a MilkFunc.
 func GET(pattern string, port string, handler MilkFunc) {
 	http.HandleFunc(pattern, handler)
-	fmt.Printf("Server open in: localhost%v\n", port)
+	fmt.Printf("Server open in: http://localhost%v\n", port)
 	ListenErr := http.ListenAndServe(port, nil)
 	if ListenErr != nil {
 		fmt.Printf("ListenErr: %v\n", ListenErr)
